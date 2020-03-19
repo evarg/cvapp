@@ -13,10 +13,6 @@ Vue.config.productionTip = false
 
 Vue.use(vueResource);
 
-import VueMapboxMap from "./components/VueMapboxMap.vue";
-
-export default VueMapboxMap;
-
 Vue.http.interceptors.push((request, next) => {
 
     if(localStorage.getItem('token')) {
