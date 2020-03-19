@@ -39,11 +39,17 @@
             addMarkers: function () {
                 for (var i = 0; i < this.coronas.length; i++) {
                     console.log(this.coronas[i].attributes.Long_);
+                    
+                    var a = new Date(this.coronas[i].attributes.Last_Update);
+                    var months = ['Sty','Lut','Mar','Kwi','Maj','Cze','Lip','Sie','Wrz','Paz','Lis','Gru'];
+                    var time = a.getDate() + ' ' + months[a.getMonth()] + ' ' + a.getFullYear() + ' ' + a.getHours() + ':' + a.getSeconds();
+                    
                     new mapboxgl.Marker({})
                             .setLngLat([this.coronas[i].attributes.Long_, this.coronas[i].attributes.Lat])
                             .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
                                 .setHTML(
                                     '<h3>' + this.coronas[i].attributes.Country_Region + '</h3>' +
+                                    '<p><b>Data aktualizacji: ' + time + '</b></p>' +
                                     '<p>Potwierdzone przypadki: ' + this.coronas[i].attributes.Confirmed + '</p>' +
                                     '<p>Zgony: ' + this.coronas[i].attributes.Deaths + '</p>' +
                                     '<p>Wyleczeni: ' + this.coronas[i].attributes.Recovered + '</p>' +
