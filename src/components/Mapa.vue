@@ -7,7 +7,6 @@
 
 <script>
     import mapboxgl from 'mapbox-gl';
-    //console.dir(mapboxgl);
 
     export default {
         data () {
@@ -18,7 +17,6 @@
         mounted() {
             this.createMap();
             this.fetchCorona();
-            //this.addMarkers();
         },
         created: function () {
         },
